@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STOPWATCH</title>
+    <style>
+        .main{
+            color:red;
+            text-align: center;
+            font-size:xxx-large;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="main">0</h1>
+    <script>
+        let count = 0;
+        function call(){
+            let element = document.querySelector(".main");
+            element.innerHTML = count;
+            count = count +1;
+        }
+        setInterval(call,1000);
+    </script>
+</body>
+</html>

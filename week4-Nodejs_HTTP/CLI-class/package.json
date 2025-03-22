@@ -1,0 +1,16 @@
+{
+  "name": "week4-nodejs_http",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0"
+  }
+}

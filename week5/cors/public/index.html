@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.6/axios.min.js"></script>
+</head>
+<body>
+    <input type="text" id="value1" placeholder="enter a"></input>
+    <input type="text" id="value2" placeholder="enter b"></input>
+    <button onclick="sendRequest()">find sum</button>
+    <div id="post">Answer:</div>
+    <script> 
+        async function sendRequest(){
+            const response = await axios.post("http://localhost:3000/sum",{  //sending a and b values that the user types in the input box
+                a:document.getElementById("value1").value,
+                b:document.getElementById("value2").value
+            });
+            //printing the response on the screen using DOM
+            document.getElementById("post").innerHTML += response.data.ans;  //here the response is in the form of json not in plaintext so we have write here response.data.ans
+            //here we use += because we are appending the result to the div and if use = then it will change the innerhtml of div to the response
+        }   
+    </script> 
+</body>
+</html>
+<!-- to start this we install serve external paackage then run the command npx serve-->

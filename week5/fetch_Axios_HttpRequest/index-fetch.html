@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hello
+    <div id="posts"></div>
+    <script>
+        async function getRecentPosts() {
+            const res = await fetch("https://jsonplaceholder.typicode.com/posts/1",{  //await isilye bc fetch fucntion async hai and can take few seconds to complete
+                method:"GET"
+            }); 
+            const data = await res.json(); //converting the data in json 
+            document.getElementById("posts").innerHTML = data.body; //to put all the json data use JSON.stringify(data)
+        }
+        getRecentPosts();
+    </script>
+</body>
+</html>

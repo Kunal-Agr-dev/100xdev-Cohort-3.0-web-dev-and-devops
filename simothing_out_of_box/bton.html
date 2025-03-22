@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Animation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .order {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;    /* important line*/
+        }
+
+        .animate {
+            background-color: #28a745;
+            transform: scale(1.2);      /*imp line*/
+        }
+
+        button{
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+    <button class="order">Click</button>
+    <script>
+        $(document).ready(function(){
+            $('.order').click(function(){
+                let button = $(this);
+                if(!button.hasClass('animate')){
+                    button.addClass('animate');
+                    setTimeout(() => {
+                        button.removeClass('animate');
+                    }, 2000); // the effect is removed after 2 seconds
+                }
+            });
+        });
+    </script>
+</body>
+</html>

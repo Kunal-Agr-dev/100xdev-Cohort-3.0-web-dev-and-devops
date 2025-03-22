@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    Hello
+    <button onclick="getRecentPosts()">click</button>
+    <div id="posts"></div>
+    <script>  //this is slightly easier to code than fetch api
+        async function getRecentPosts() {
+            const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+            const arr = res.data;
+            for (let i = 0; i < arr.length; i++) {
+                document.getElementById("posts").innerHTML += "<div>"+  arr[i].body +"</div>";  
+            }
+        }
+        //you cant send a body in GET request but can send query
+    </script>
+</body>
+</html>

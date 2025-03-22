@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <style>
+            button{
+                border : none;
+                width: 90px;
+                height: 20px;
+                margin-left: 10px;
+            }
+            button:hover{
+                cursor:pointer;
+                background-color: aqua;
+            }
+            .dark-mode{
+                background-color: black;
+                color:yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text"></input>
+        <button onclick="addTodo();">Add todo!</button> 
+        <button onclick="darkMode()">click me!</button>
+    </body>
+    <script>
+        let count =1;
+        function addTodo(){
+            const inputEl = document.querySelector("input");
+            const value = inputEl.value.trim();   // removes the blanck spaces
+            //checking is todo is empty
+            if(value == ''){
+                alert("empty todo cannot be added");
+                return;
+            }
+            const spanEl = document.createElement("span");
+            const buttonEl = document.createElement("button");
+            const divEl = document.createElement("div");
+            divEl.setAttribute("id",count);
+
+            spanEl.innerHTML = count + '. '+value;
+            buttonEl.innerHTML = "Delete";
+            buttonEl.setAttribute("onclick","deleteTodo("+count+")");
+
+            divEl.appendChild(spanEl);
+            divEl.appendChild(buttonEl);
+            document.querySelector("body").appendChild(divEl);
+            count++;
+
+            //this is not prefered way...
+            //divEl.innerHTML = "<div>" +value+ "</div><button onclick='deleteTodo(" +count+ ")'>Delete</button>";
+        }
+        function deleteTodo(index){
+            const element = document.getElementById(index);
+            element.parentNode.removeChild(element);//or you can write...// document.querySelector("body").removeChild(element);
+        }
+        function darkMode(){
+            let ele = document.body;
+            ele.classList.toggle("dark-mode");
+        }
+    </script>
+</html>
