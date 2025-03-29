@@ -7,27 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log-in Page</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div>
-        Signup
-        <input id="signup-username" type="text" name="username" placeholder="Username">
-        <input id="signup-password" type="password" name="password" placeholder="Password">
-        <button onclick="signup()">Submit</button>
-    </div>
-    <div>
-        Signin
-        <input id="signin-username" type="text" name="username" placeholder="Username">
-        <input id="signin-password" type="password" name="password" placeholder="Password">
-        <button onclick="signin()">Submit</button>
-    </div>
-    <div>
-        User information:
-        <div id="information"></div>
-    </div>
-    <div>
-        <button onclick="logout()">Logout</button>
+    <div class="container">
+        <div id="auth-section">
+            <div class="mainbox">
+                <span>Signup</span>
+                <input id="signup-username" type="text" name="username" placeholder="Username">
+                <input id="signup-password" type="password" name="password" placeholder="Password">
+                <button class="a" onclick="signup()">Submit</button>
+            </div>
+            <div class="mainbox">
+                <span>Signin</span>
+                <input id="signin-username" type="text" name="username" placeholder="Username">
+                <input id="signin-password" type="password" name="password" placeholder="Password">
+                <button class="a" onclick="signin()">Submit</button>
+            </div>
+        </div>
+        <div id="info-section">
+            User information:
+            <div id="information"></div>
+        </div>
+        <div>
+            <button class="b" onclick="logout()">Logout</button>
+        </div>
     </div>
 
     <script>
@@ -63,13 +68,15 @@
                         token: token
                     }
                 });
-                document.getElementById("information").innerHTML = response.data.username;
+                document.getElementById("information").innerHTML = `Username: ${response.data.username} <br>Password:${response.data.password}`;
             }
         }
         getUserInformation();
         async function logout() {
             localStorage.removeItem("token");
+            alert("you are logged out")
         }
+        
     </script>
 </body>
 

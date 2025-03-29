@@ -5,6 +5,8 @@ const app = express();
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = "hiyou";
 
+app.use(express.static("public"));
+
 //for converting req data to json
 app.use(express.json());
 
@@ -46,7 +48,8 @@ app.post("/signin",logger, (req, res) => {
 
     if (user) {
         const token = jwt.sign({
-            username:user.username  //the thing u want to encode in the token we write it here
+            username:user.username,  //the thing u want to encode in the token we write it here
+            password:user.password
         },JWT_SECRET);
         //anyone can decode this token u can check this in jwt.io
         res.json({

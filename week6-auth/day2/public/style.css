@@ -1,0 +1,87 @@
+body{
+    background-color: black;
+    color:white;
+    background: linear-gradient(to bottom right, black,rgb(32, 96, 97));
+    background-repeat: no-repeat;
+    height: 100vh; /*ensures the background covers the whole page*/
+    overflow:hidden;
+}
+.container{
+    border:solid #B0BEC5 1px;
+    border-radius: 9px;
+    background: transparent;
+    width:60%; 
+    margin:auto;
+    margin-top :150px;
+}
+#auth-section{
+    display: flex;
+    justify-content: space-around;
+}
+span{
+    margin:10px;
+    font-size:xx-large;
+}
+.mainbox{
+    display: flex;
+    flex-direction: column;
+}
+input{
+    margin:7px 0 7px;
+    width:350px;
+    height:40px;
+    border:none;
+    font-size:larger;
+    background: none;
+    border:solid gainsboro 1px;
+    color:white;
+    border-radius: 7px;
+    transition-property:all;
+    transition-duration: 0.5s;
+}
+input:focus{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+input::placeholder{
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+input:focus::placeholder{
+    transform: scale(0);
+}
+button{
+    width:40%;
+    margin:5px 100px 10px;
+    height: 30px;
+    font-size: large;
+    background-color: rgb(69, 153, 186);
+    border:none;
+    border-radius: 10px;
+    color:white;
+    cursor:pointer;
+    transition: all 0.3s;
+}
+.a:hover{
+    background-color: rgb(4, 200, 4);
+    cursor:pointer !important;  /*dont know why not applying*/
+    transform: scale(1.1);
+}
+.b{
+    position:relative;
+    background-color: red;
+    margin:20px;
+    left:220px;
+}
+.b:hover{
+    background-color: rgba(240, 0, 0, 0.77);
+    transform: scale(1.1);
+}
+#info-section{
+    font-size: larger;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+
+
