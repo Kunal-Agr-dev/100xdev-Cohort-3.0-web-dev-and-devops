@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { JWT_USER_PASSWORD } = "user_secret";
+const JWT_USER_PASSWORD = "user_secret";
 
 function userMiddleware(req,res,next){
     const token = req.headers.token;
@@ -16,5 +16,6 @@ function userMiddleware(req,res,next){
 }
 
 module.exports = {
-    userMiddleware: userMiddleware
+    userMiddleware: userMiddleware,
+    JWT_USER_PASSWORD:JWT_USER_PASSWORD
 }

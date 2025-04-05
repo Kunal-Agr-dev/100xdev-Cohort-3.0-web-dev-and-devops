@@ -4,7 +4,7 @@ const {UserModel,TodoModel} = require("./db");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcrypt');
-const { z, coerce } = require("zod");
+const { z, coerce } = require("zod");     //you can also write const z = require("zod");
 
 //connnecting the mongodb database
 mongoose.connect("mongodb+srv://kunal:Dookie%401@cluster0.qsvqnpt.mongodb.net/test-2");

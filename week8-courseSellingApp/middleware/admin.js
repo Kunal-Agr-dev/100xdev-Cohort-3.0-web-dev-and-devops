@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { JWT_ADMIN_PASSWORD } = "admin_secret";
+const JWT_ADMIN_PASSWORD = "admin_secret";
 
 function adminMiddleware(req,res,next){
     const token = req.headers.token;
