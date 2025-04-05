@@ -4,7 +4,7 @@ const { Router } = require("express");    //or you can --->both does the same th
 const { userModel, purchaseModel, courseModel } = require("../db");
 const userRouter = Router();
 const jwt = require("jsonwebtoken");
-const { JWT_USER_PASSWORD } = require("../middleware/user");
+const { JWT_USER_PASSWORD } = require("../config");
 const { userMiddleware } = require("../middleware/user");
 
 userRouter.post("/signup",async (req,res) => {
@@ -40,8 +40,21 @@ userRouter.post("/signin", async (req,res) => {
     }
 });
 
-userRouter.get("/purchases",(req,res) => {
+userRouter.get("/purchases",userMiddleware, async (req,res) => {        //get all the purchases
+    const userId = req.userId;
+    const purchases = await purchaseModel.find({
+        userId
+    });
+    //this will only show the ids of the courses that the user bought to see the course detail do..
+    
+    const coursesData = await courseModel.find({
+        _id: { $in: purchases.map(x => x.courseId) }
+    })
 
+    res.json({
+        purchases:purchases,
+        coursesData:coursesData
+    })
 });
 
 module.exports = {

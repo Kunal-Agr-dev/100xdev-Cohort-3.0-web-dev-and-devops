@@ -1,5 +1,8 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
+
 const { userRouter } = require("./routes/user");
 const { courseRouter } = require("./routes/course");
 const { adminRouter } = require("./routes/admin");
@@ -15,7 +18,7 @@ app.use("/api/v1/admin",adminRouter);       //hence all the structuring(prefixin
 
 //this fucntions ensures the backend is connected to the db before it starts listening
 async function main() {
-    await mongoose.connect("mongodb+srv://kunal:Dookie%401@cluster0.qsvqnpt.mongodb.net/coursera-app");
+    await mongoose.connect(process.env.MONGO_URL);
     app.listen(3000);
     console.log("listening to port 3000");
 }
