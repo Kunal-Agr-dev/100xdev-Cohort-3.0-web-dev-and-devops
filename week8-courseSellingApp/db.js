@@ -8,6 +8,10 @@ const userSchema = new Schema({
     password:String,
     firstName:String,
     lastName:String
+    // purchaseSchema:[{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref:courseModel
+    // }]
 });
 
 const courseSchema = new Schema({

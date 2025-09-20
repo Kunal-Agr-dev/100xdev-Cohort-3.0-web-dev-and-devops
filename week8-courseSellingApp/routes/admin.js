@@ -83,9 +83,9 @@ adminRouter.post("/course", adminMiddleware, async (req, res) => {     //to add 
     const parseData = requiredBody.safeParse(req.body);
     if (!parseData.success) {
         res.status(403).json({
-            msg: "Not correct schema",
-            error: parseData.error
-        });
+            msg:"Schema is not correct",
+            error:parseData.error
+        })
     }
 
     const course = await courseModel.create({
